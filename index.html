@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><h1>Find Your Favorites!!!</h1></title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/9aa3b96097.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+</head>
+
+<body class="flex flex-col min-h-screen bg-gray-800 ">
+
+    <!-- Sticky Header -->
+    <header class="flex items-center justify-between flex-wrap bg-green-900 p-6">
+        <div class="flex items-center flex-shrink-0 text-white mr-6">
+            <ul>
+                <li class="music">&#127932;</li>
+                <li id="homepage-btn" class="cursor-pointer tracking-tight"><h1 class="music">Find Your Favorites!!!</h1></li>
+            </ul>
+        </div>
+        <form id="artistSearchForm">
+            <div class="input-group mb-3">
+
+                <div class="pt-2 relative mx-auto text-gray-600">
+                    <input
+                        class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+                        type="text" id="artistInput" name="artistInput" placeholder="Search">
+                    <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
+                        <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
+                            viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;"
+                            xml:space="preserve" width="1024px" height="1024px">
+                            <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23 
+                        s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92 
+                        c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17 
+                        s-17-7.626-17-17S14.61,6,23.984,6z" />
+                        </svg>
+        </form>
+    </header>
+
+
+    <!-- Content -->
+    <main class="flex-grow container mx-auto">
+
+        <!-- landing page -->
+        <div id="landing-page">
+            <section id="trendingArtists">
+                <h3 class="bg-black-700 text-pink-800 text-2xl font-bold p-3">
+                    Today's Top Performers
+                </h3>
+                <!-- Trending Artists Tabs-->
+                <div id="trendingWell" class="flex flex-wrap bg-black-400">
+                    <div id="fG">
+                        <div id="fG_1" class="fG"></div>
+                        <div id="fG_2" class="fG"></div>
+                        <div id="fG_3" class="fG"></div>
+                        <div id="fG_4" class="fG"></div>
+                        <div id="fG_5" class="fG"></div>
+                        <div id="fG_6" class="fG"></div>
+                        <div id="fG_7" class="fG"></div>
+                        <div id="fG_8" class="fG"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="recentSearches">
+                <h2 class="bg-pink-800 text-black-900 text-2xl font-bold p-3 relative">
+                    Your Recent Searches 
+                    <button id="HistoryClear" class="float-right text-sm hover:text-teal-300 absolute bottom-0 right-0 ">
+                        Clear List
+                    </button>
+                </h2>
+                <div id="searchWell" class="flex flex-wrap bg-gray-400"></div>
+            </section>
+        </div>
+
+        <div id="artistPage" class="collapsed">
+            <!-- Artist Name -->
+            <section>
+                <div id="artistBanner" class="relative bg-teal-900 text-green-100 p-0 pb-5 flex content-end overflow-hidden">
+                    <div class="relative flex-shrink-0 mx-2" style="height:200px!important; width:200px!important;">
+                        <div class="absolute rounded-full h-full w-full overflow-hidden shadow-lg" style="bottom:-40px;">
+                            <img id="artistBannerPic" class="h-full w-full" src="", alt="">
+                        </div>
+                    </div>
+                    <div class="">
+                        <h2 id="artistBannerName" class="text-4xl font-bold ">
+                            Artist Name
+                        </h2>
+                        <div id="genreWell" class=""></div>
+                    </div>
+                     
+                </div>
+            </section>
+
+            <!-- Album  -->
+            <section>
+                <h2 class="bg-teal-700 text-green-100 text-2xl font-bold p-3">
+                    Albums
+                </h2>
+                <div id="albumWell" class="flex flex-wrap bg-black-700 overflow-hidden"></div>
+            </section>
+
+            <!-- Related Artists -->
+            <section>
+                <h2 class="bg-teal-700 text-green-100 text-2xl font-bold p-3" >
+                    Related Artists
+                </h2>
+
+
+                <div id="relatedWell" class="flex flex-wrap bg-gray-400">
+
+                </div>
+            </section>
+
+
+            <section>
+                <h2 class="bg-teal-700 text-green-100 text-2xl font-bold p-3">
+                    Upcoming Events
+                </h2>
+
+                <div id="eventWell" class="flex flex-wrap"></div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer
+        class="w-full text-center font-semibold text-xl tracking-tight border-t border-grey p-4 bg-green-900 text-white mr-6">
+        <div>
+            <a href="https://github.com/mathcodes" class="btn btn-primary"><h3>©Jon Christie 2020</h3></a>
+
+        </div>
+        <div><a class="email" href="mailto:fullstack11235@gmail.com">fullstack11235@gmail.com</a>
+              •  <a class="email" href="tel:1-919-368-3369">(919) 368-3369</a></div>
+        <ul className="social">
+            <a href="http://github.com/mathcodes">
+               <i class="email gh fa fa-github" aria-hidden="true"></i>
+            </a>
+           
+            <a href="https://www.linkedin.com/in/jonpchristie">
+               <i class="email li fa fa-linkedin"></i>
+            </a>
+          
+            <a href="https://twitter.com/jonpchristie">
+               <i class="email tw fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            
+          <a href="https://www.instagram.com/jon011235">
+               <i class="email pi fa fa-instagram" aria-hidden="true"></i>
+            </a>
+            
+            <a href="https://open.spotify.com/artist/07S7aLfxH70VAX64g1WuFw?si=-HWhcERiSD69S_NfZEZ_lw">
+               <i class="email sp fa fa-spotify" aria-hidden="true"></i>
+            </a>
+           
+            <a href="https://www.youtube.com/channel/UC5GFnN-lv8Yuqc9O3b79k6g">
+               <i class="email yt fa fa-youtube" aria-hidden="true"></i>
+            </a>
+         
+            </ul>
+    </footer>
+
+
+    <!-- Logic link -->
+    <script type="text/javascript" src="logic.js"></script>
+</body>
+
+</html>
